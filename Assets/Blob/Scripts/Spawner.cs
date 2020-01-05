@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
                 objectToSpawn,
                 new Vector3(
                     Random.Range(-10f, 10f),
-                    1.7f,
+                    transform.localPosition.y,
                     Random.Range(-10f, 10f)
                 ),
                 Quaternion.Euler(0f,0f,0f)));
