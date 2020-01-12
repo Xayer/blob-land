@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using System.Threading;
 
 public class MapGenerator : MonoBehaviour {
 	public enum DrawMode {
@@ -41,7 +43,7 @@ public class MapGenerator : MonoBehaviour {
 			display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.heightMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail), TextureGenerator.TextureFromColourMap(mapData.colourMap, mapChunkSize, mapChunkSize));
 		}
 	}
-	MapData GenerateMapData() {
+	public MapData GenerateMapData() {
 		float[,] noiseMap = Noise.GenerateNoiseMap (mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, offset);
 
 		Color[] colourMap = new Color[mapChunkSize * mapChunkSize];
